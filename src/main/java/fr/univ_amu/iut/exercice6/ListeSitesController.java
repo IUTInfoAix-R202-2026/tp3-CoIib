@@ -52,9 +52,7 @@ public class ListeSitesController {
     siteCarte.setNombrePassages(nombrePassage);
     siteCarte.setNombrePoints(nombrePoints);
     siteCarte.setJoursDepuisDernierPassage(dernierPassage);
-    System.out.println(conteneurCartes.getChildren().size());
-    conteneurCartes.getChildren().addFirst(siteCarte);
-    System.out.println(conteneurCartes.getChildren().size());
+    conteneurCartes.getChildren().add(0, siteCarte);
     return getNombreCartes();
   }
 
