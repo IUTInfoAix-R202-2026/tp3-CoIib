@@ -30,7 +30,10 @@ public class EnTeteController {
     // (Astuce : boutonNouveauSite.setOnAction(e -> ...). On évite onAction="#..." dans le FXML
     //  car la cible de l'action est fournie dynamiquement par le contrôleur parent.)
     mettreAJourCompteur(0);
-    actionNouveauSite.run();
+    boutonNouveauSite.setOnAction(
+        e -> {
+          actionNouveauSite.run();
+        });
   }
 
   /**
@@ -51,8 +54,8 @@ public class EnTeteController {
     //   - "Aucun site déclaré"             si nombreSites == 0
     //   - "1 site déclaré"                  si nombreSites == 1
     //   - "<nombreSites> sites déclarés"   sinon
-    if (nombreSites == 0) System.out.println("Aucun site déclaré");
-    else if (nombreSites == 1) System.out.println("1 site déclaré");
-    else System.out.println(nombreSites + "sites déclarés");
+    if (nombreSites == 0) labelSousTitre.setText("Aucun site déclaré");
+    else if (nombreSites == 1) labelSousTitre.setText("1 site déclaré");
+    else labelSousTitre.setText(nombreSites + " sites déclarés");
   }
 }
