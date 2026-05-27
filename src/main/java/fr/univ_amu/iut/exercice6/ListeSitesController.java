@@ -40,8 +40,22 @@ public class ListeSitesController {
     // 3. Ajouter la carte au début (index 0) du VBox pour que les nouveaux sites apparaissent en
     //    haut, comme dans un flux d'activité.
     // 4. Retourner conteneurCartes.getChildren().size().
-    int total = 0;
-    return total;
+    compteurDemo += 1;
+    String numCarre = "Carré " + (640000 + compteurDemo);
+    String nomConvivial = "📍 Site de démonstration #" + compteurDemo;
+    int nombrePoints = (compteurDemo % 3) + 1;
+    int dernierPassage = compteurDemo * 4;
+    int nombrePassage = compteurDemo * 2;
+    SiteCarte siteCarte = new SiteCarte();
+    siteCarte.setNumeroCarre(numCarre);
+    siteCarte.setNomConvivial(nomConvivial);
+    siteCarte.setNombrePassages(nombrePassage);
+    siteCarte.setNombrePoints(nombrePoints);
+    siteCarte.setJoursDepuisDernierPassage(dernierPassage);
+    System.out.println(conteneurCartes.getChildren().size());
+    conteneurCartes.getChildren().addFirst(siteCarte);
+    System.out.println(conteneurCartes.getChildren().size());
+    return getNombreCartes();
   }
 
   /** Retourne le nombre courant de cartes affichées (utile pour les tests). */
